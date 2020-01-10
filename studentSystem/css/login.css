@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(240, 240, 240);
+ 
+}
+/* 顶部的导航栏 */
+.head{
+    height: 10%;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font:1.7em "微软雅黑";
+    padding: 40px 0 20px 2%;
+}
+.head a:link{
+    text-decoration: none;
+    color: white;
+}
+.head a:visited{
+    text-decoration: none;
+    color: white;
+}
+.head a:hover{
+    text-decoration: none;
+    color: white;
+}
+.head a:active{
+    text-decoration: none;
+    color: white;
+}
+/* 内容 包括登录窗 */
+.content{
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+       
+}
+/* 内容左边的div */
+.left_ct{
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: rgb(1, 168, 235);
+    
+}
+/* 内容右边的div */
+.right_ct{
+    float: left;
+    width: 50%;;
+    height: 100%;
+    background-color: rgb(1, 168, 235);
+}
+.left_ct h1{
+    width: 600px;
+     margin-left: 0px;
+    padding-top: 90px;
+    font: 4em "微软雅黑" ;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    -webkit-animation: h1move 1.5s forwards;
+    animation:h1move 1.5s forwards ;
+}
+.bgimg{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 15%;
+    overflow: hidden;
+}
+.bgimg img{
+    /* width: 400px; */
+    height: 200px;
+    text-align: center;
+}
+@-webkit-keyframes h1move{
+    form{margin-left: 0px;}
+    to{margin:0 auto;}
+}
+@keyframes h1move{
+    form{margin-left: 35%;}
+    to{margin-left:15% ;}
+}
+.right_ct h1{
+    font: 3em "微软雅黑";
+    color: rgb(255, 255, 255);
+    margin: 5% 15%;
+}
+
+.loginbox{
+    margin-top: 5%;
+    margin-left: 35%;
+    padding: 30px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    -webkit-animation: loginboxmove 1.5s forwards;
+    animation: loginboxmove 1.5s forwards;
+}
+@-webkit-keyframes loginboxmove{
+    form{margin-left: 35%;}
+    to{margin-left:15% ;}
+}
+@keyframes loginboxmove{
+    form{margin-left: 35%;}
+    to{margin-left:15% ;}
+}
+.loginbox form{
+    margin: 0 auto;
+    width: 322px;
+    display: block;
+    overflow: hidden;
+}
+
+#user,#password{
+    padding: 10px;
+    height: 30px;
+    width: 300px;
+    border: 1px solid rgb(11, 180, 247);
+    border-radius: 0px;
+    font-size: 1.6em;
+    color: rgb(94, 94, 94);
+
+}
+.inputDiv{
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin: 0 0;
+    width:322px ;
+}
+form p{
+    padding-bottom: 10px;
+    font: 22px "微软雅黑";
+    color: #555555;
+}
+#login{
+    display: block;
+    background:rgb(0, 155, 245);
+    height: 56px;
+    width: 322px;
+    color: rgb(255, 255, 255);
+    font: 22px "微软雅黑";
+    border: none;
+    margin-top: 25px;
+    padding: 10px 0 10px;
+    overflow: hidden;
+    border:rgb(0, 155, 245) 1px solid;
+    border-radius: 8px;
+}
+.help a:link{
+    text-align:right;
+    float: right;
+    font-family: "微软雅黑";
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(63, 199, 240);
+    
+}
+.help a:visited{
+    text-align: right;
+    font-family: "微软雅黑";
+    font-size: 1em;
+    color: rgb(72, 140, 230);
+}
+.help a:hover{
+    text-align: right;
+    font-family: "微软雅黑";
+    font-size: 1em;
+    color: rgb(3, 152, 197);
+}
+/* 尾部 */
+.foot{
+    margin-top: 10%;
+    padding: 80px 0;
+    background-color: rgb(51, 51, 51);
+    overflow: hidden;
+    width: 100%;
+}
+.footleft{
+    float: left;
+    /* padding-right: 110px; */
+    height: 60%;
+    width: 50%;
+}
+.footleft h1{
+    font: 2.5em "黑体";
+    color: rgb(238, 238, 238);
+    border-right: white 5px solid;
+    text-align: center;
+    padding: 30px 0;
+}
+.footright{
+    float: left;
+    /* padding-left:10% ; */
+    height: 60%;
+    width: 50%;
+}
+.footright h1{
+    font: 2.5em "黑体";
+    color: rgb(238, 238, 238);
+    text-align: center;
+    padding: 30px 0;
+}
