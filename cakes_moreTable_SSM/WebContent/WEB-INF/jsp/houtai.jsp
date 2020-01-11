@@ -3,145 +3,134 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>后台管理</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<title>后台管理</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<style>
-		.tableBox{
-			width: 1400px;
-			margin: 3em auto;
-			overflow: auto;
+		body {
+			background-color: #ececec;
 		}
-		th,td{
-			padding: 0.8em 1em;
-			text-align: center;
-			font: 1.3em "微软雅黑";
+
+		* {
+			margin: 0;
+			padding: 0;
 		}
-		.th{
-			border: none;
+
+		.dataBox {
+			padding-top: 3em;
+			width: 65%;
+			margin: 0 auto;
+			overflow: hidden;
 		}
-		.head{
-			position: sticky;
-			top: 0px;
-		}
-		td{
-			border-right:  1px rgb(201, 201, 201) solid;
-		}
-		.rightEnd{
-			border-right: none;
-		}
-		tr{
-			border-bottom: 1px rgb(201, 201, 201) solid; 
-			box-sizing: border-box;
-			
-		}
-		input[type=submit]{
-			display: block;
+
+		.goodsBox {
+			/* margin-top: 0.5em; */
 			float: left;
-			margin-top: 2.5em;
-			padding: 0.5em 1em;
-			background-color: rgb(2, 147, 243);
-			color: white;
-			border-radius: 8px;
-		}
-		img{
-			height: 100px;
-		}
-		input {
-			display:block;
-			border: none;
+			/* margin-left: 3em; */
+			background-color: #ffffff;
+			width: 400px;
+			height: 400px;
+			overflow: auto;
+			border-radius: 12px;
+			/* margin-bottom: 88px; */
+			/* margin-bottom: 3em; */
+			box-shadow: 0 #cccccc;
+			-webkit-transition: box-shadow 0.5s;
+			/* -webkit-transition: margin-bottom 0.5s; */
+			/* position: absolute; */
 
 		}
-		input[type=number]{
-			display:block;
-			width: 80px;
-		}
-		.intro{
-			height: 100px;
-		}
-		.head :hover{
-			background-color: white;
-			border-bottom: 1px rgb(201, 201, 201) solid;
 
-		}
-		tr:hover{
-	 		background-color: #eddbf0;
-			 border: 3px #e389f3 solid;
+		.imgbox {
+			float: left;
 		}
 
-		tr:hover input{
-			background-color: #eddbf0;
+		.goodsBox img {
+			height: 150px;
+			width: 150px;
 		}
-		.updateBn{
-			display: none;
-			height: 70px;
-			width: 70px;
+
+		form {
+			display: block;
+			padding: 1em;
+		}
+
+		.dataR {
+			float: left;
+			font: 1.2em "微软雅黑";
+			padding-left: 1em;
+			overflow: auto;
+
+		}
+
+		.dataB {
+			padding-top: 1.5em;
+			clear: both;
+		}
+
+		.dataB p {
+			font: 1.3em "微软雅黑";
+			text-indent: 2em;
+		}
+
+		.goodsBox:hover {
+			box-shadow: 0px 30px 24px #cfcfcf;
+			cursor: pointer;
+			/* margin-bottom: 2em; */
 			
 		}
-		tr:hover .updateBn{
-			display: block;
-			border: #e389f3 2px solid;
-			background: rgba(255, 0, 0, 0);
-			font: 1.5em;
-			color: #e389f3;
+		.wrapGoods:hover{
+			padding-bottom: 2em;
 		}
-		tr:hover .id{
-			display: none;;
+		.wrapGoods{
+			width: 400px;
+			height: 400px;
+			overflow: visible;
+			float: left;
+			margin-left: 3em;
+			margin-bottom: 3em;
+			position: relative;
+			box-sizing: border-box;
+			padding-bottom: 0;
+			-webkit-transition: padding-bottom 0.5s;
 		}
 	</style>
 	<script>
-	function upRow(row){
-		document.getElementById(row).style.border="2px #ccc solid";
-	}
-</script>
+		function upRow(row) {
+			// if()
+			document.getElementById(row).style.border = "3px #e389f3 solid";
+			// document.getElementById(row).style.backgroundColor="";
+		}
+	</script>
 </head>
 
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
-	<div class="tableBox">
-		<form action="update" method="post" enctype="multipart/form-data" >
-			<table>
-				<tr class="head">
-					<th>id</th>
-					<th>图片</th>
-					<th>名称</th>
-					<th>价格</th>
-					<th>介绍</th>
-					<th>库存</th>
-					<th class="rightEnd">类型</th>
-				</tr>
-				<c:if test="${!empty g }">
-				<c:forEach items="${g }" var="gi"  >
-					<tr id="${gi.id}">
-						<td>
-						<input type="number" name="id" value="${gi.id }" class="id">
-						<a class="updateBn" onclick="upRow(${gi.id})">修改</a>
-						</td>
-						<td>
-							<img src="http://localhost:8080/cakes_moreTable_SSM/${gi.image }"
-							alt="图片" />
-							<input type="file" name="pictureFile" multiple="multiple" />
-						</td>
-						<td><input type="text" name="name" value="${gi.name }"/></td>
-						<td><input type="number" name="price" value="${gi.price }"/></td>
-						<td><input class="intro" type="text" name="intro" value="${gi.intro}"/></td>
-						<td><input type="number" name="stock" value="${gi.stock }"/></td>
-						<td class="rightEnd"><input type="number" name="type" value="${gi.type_id}"/></td>
-					</tr>
-				</c:forEach>
-				</c:if>
-				<c:if test="${empty g }">
-					<tr>
-						<td colspan="7" class="rightEnd">沒有找到数据</td>
-					</tr>
-				</c:if>
-
-			</table>
-			<input type="submit" value="提交更改" > 
-		</form>
+	<div class="dataBox">
+		<c:forEach items="${g }" var="gi">
+			<div class="wrapGoods">
+				<div class="goodsBox">
+					<form action="update">
+						<div class="imgbox"><img src="http://localhost:8080/cakes_moreTable_SSM/
+				${gi.image }" alt=""></div>
+						<div class="dataR">
+							<p>名称：${gi.name}</p>
+							<p>价格：${gi.price}</p>
+							<p>库存：${gi.stock}</p>
+							<p>类型：${gi.type_id}</p>
+						</div>
+						<div class="dataB">
+							<p class="intro">${gi.intro}</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</c:forEach>
 	</div>
 </body>
+
 </html>
