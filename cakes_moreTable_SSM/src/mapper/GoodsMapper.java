@@ -9,4 +9,5 @@ public interface GoodsMapper {
 	 ArrayList<Goods> types(int id);
 	 String type(int type_id);
 	 int updateGoods(Goods goods);
+	 int deleteGoods(int id);
 }

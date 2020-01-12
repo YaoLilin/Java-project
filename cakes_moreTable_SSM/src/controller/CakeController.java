@@ -29,7 +29,7 @@ public class CakeController {
 	
 //	查找类别
 	@RequestMapping("types")
-	public ModelAndView types(int id,HttpSession session) {
+	public ModelAndView types(int id) {
 		ModelAndView modelAndView=new ModelAndView("index");
 		ArrayList<Goods> goodsList=goodsService.types(id);
 		String type=goodsService.type(id);
@@ -41,12 +41,21 @@ public class CakeController {
 	
 //	搜索
 	@RequestMapping("search")
-	public ModelAndView types(String value,HttpSession session) {
+	public ModelAndView types(String value) {
 		ModelAndView modelAndView=new ModelAndView("index");
 		ArrayList<Goods> goodsList=goodsService.search(value);
 		modelAndView.addObject("g",goodsList );
 //		session.setAttribute("position", 2);
 		modelAndView.addObject("message", value+" 的搜索结果");
+		return modelAndView;
+	}
+	
+	@RequestMapping("deleteGoods")
+	public ModelAndView deleteGoods(int id) {
+		ModelAndView modelAndView=new ModelAndView("houtai");
+		goodsService.deleteGoods(id);
+		ArrayList<Goods> list=goodsService.list();
+		modelAndView.addObject("g",list );
 		return modelAndView;
 	}
 }

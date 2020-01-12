@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .div{
+                width: 400px;
+                height: 400px;
+                background-color: aqua;
+                cursor: pointer;
+                display: block;
+            }
+            @-webkit-keyframes hid{
+                from{visibility: visible;}
+                to{visibility:hidden;}
+            }
+        </style>
+        <script>
+            function hid(){
+                var items=document.getElementsByClassName("div");
+                for(var i=0;i<items.length;i++){
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div onclick="hid()" class="div"></div>
+    </body>
+</html>
