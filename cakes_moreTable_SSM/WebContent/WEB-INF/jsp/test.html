@@ -13,6 +13,12 @@
                 from{visibility: visible;}
                 to{visibility:hidden;}
             }
+            input[type=submit]{
+                display: block;
+                padding: 20px;
+                background-color: teal;
+                color: white;
+            }
         </style>
         <script>
             function hid(){
@@ -24,6 +30,8 @@
         </script>
     </head>
     <body>
-        <div onclick="hid()" class="div"></div>
+        <form action="">
+            <input type="submit" value="确定">
+        </form>
     </body>
 </html>
