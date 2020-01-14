@@ -11,4 +11,5 @@ public interface GoodsService {
 	public String type(int type_id);
 	public int updateGoods(Goods goods);
 	public int deleteGoods(int id);
+	public int addGoods(Goods goods);
 }

@@ -50,5 +50,10 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO 自动生成的方法存根
 		return goodsMapper.deleteGoods(id);
 	}
+	@Override
+	public int addGoods(Goods goods) {
+		// TODO 自动生成的方法存根
+		return goodsMapper.addGoods(goods);
+	}
 	
 }

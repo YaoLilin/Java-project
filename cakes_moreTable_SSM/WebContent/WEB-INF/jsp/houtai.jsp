@@ -25,7 +25,7 @@
 			width: 90%;
 			margin: 0 auto;
 			overflow: visible;
-
+			margin-top: 60px;
 		}
 
 		.goodsBox {
@@ -44,7 +44,8 @@
 			-webkit-transition: box-shadow 0.5s;
 			/* -webkit-transition: margin-bottom 0.5s; */
 			position: relative;
-
+			
+			
 		}
 
 		.imgbox {
@@ -319,13 +320,13 @@
 			}
 			to{
 				padding: 20px;
-				box-shadow: 0px 10px 10px #c0e8ff;
+				box-shadow: 0px 5px 6px  #bae6ff;
 			}
 		}
 		@-webkit-keyframes updateBnMoveOff{
 			from{
 				padding: 20px;
-				box-shadow: 0px 10px 10px #c0e8ff;
+				box-shadow: 0px 5px 6px  #bae6ff;
 			}
 			to{
 				padding: 0px;
@@ -333,6 +334,168 @@
 				
 			}
 		}
+		.opration{
+			background-color: white;
+			width: 600px;
+			float:right;
+			padding: 8px 20px;
+			margin-right: 100px;
+			border-radius: 20px;
+		}
+		.opration input{
+			display: block;
+			float: right;
+			/* border: none; */
+		}
+		.opration button,.opration input[type=submit]{
+			float: right;
+			padding: 10px;
+			background-color: white;
+			color: rgb(47, 47, 47);
+			font: 1.1em "黑体"; 
+			border-radius: 12px;
+			border: none; 
+			
+		}
+		.opration input[type=submit]{
+			margin-right: 10px;
+		}
+		.opration input[type=text]{
+			margin-right: 10px;
+			margin-top: 5px;
+			border: 1px rgb(190, 190, 190) solid;
+			border-radius: 12px;
+			width: 120px;
+			font: 1.1em "黑体";
+			padding: 6px 8px;
+		}
+		.opration select{
+			float: right;
+			display: block;
+			margin-right: 10px;
+			font: 1em "黑体";
+			/* margin-top: 2px; */
+			padding: 10px;
+			border: none;
+			background-color: white;
+		}
+		.addWindow{
+			position: fixed;
+			display: none;
+			top: 5%;
+			left:35%;
+			/* padding: 20px 40px; */
+			padding: 0;
+			z-index: 3;
+			background-color: rgb(233, 233, 233);
+			box-shadow: 0px 20px 40px 10px rgb(161, 161, 161);
+			overflow: auto;
+			/* border: 1px black solid; */
+			border-radius: 12px;
+			font: 1.2em "微软雅黑";
+			opacity:0;
+		}
+		.addWindow input{
+			display: block;
+			margin-top: 10px;
+			font: 1.2em "微软雅黑";
+		}
+
+		.addWindow input[type=text],.addWindow input[type=number]{
+			border: none;
+			border-bottom: 1px rgb(5, 130, 246) solid;
+			background-color:  rgb(233, 233, 233);
+		}
+		.addWindow input[type=file]{
+			width: 300px;
+		}
+		.addWindow input[type=number]{
+			width: 150px;
+		}
+		.addWindow input[type=text]{
+			width: 160px;
+			-webkit-transition: width 0.5s;
+		}
+		.addWindow input[type=text]:focus{
+			width: 230px;
+			border-top: none;
+			border-right: none;
+			border-left: none;
+		}
+		.addWindow input[type=number]:focus{
+			border-top: none;
+			border-right: none;
+			border-left: none;
+		}
+		.addWindow p{
+			font: 1.2em "微软雅黑";
+			margin-top: 10px
+		}
+		.addWindow input[type=submit]{
+			float: right;
+			display: block;
+			margin-top: 0px;
+
+		}
+		.addWindow input[type=submit],.addWindow a{
+			background-color: #c2c2c2;
+			padding: 10px;
+			border: none;
+			border-radius: 8px;
+
+		}
+		.addWindow a{
+			float: right;
+			display: block;
+			text-decoration: none;
+			color: black;
+			margin-right: 20px;
+			padding: 13px;
+		}
+		.addWindow a:hover{
+			text-decoration: none;
+			color: black;
+
+		}
+		@-webkit-keyframes addWindowOpenMoveOn{
+			from{
+				padding: 0;
+				top: 5%;
+				opacity: 0;
+				
+			}
+			to{
+				padding: 20px 40px;
+				top: 15%;
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes addWindowOpenMoveOff{
+			from{
+				padding: 20px 40px;
+				top: 15%;
+				opacity: 1;
+				visibility: visible;
+			}
+			to{
+				padding: 0;
+				top: 5%;
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+		
+		#houtai{
+			background-color: #e9e9e9;
+		}
+
+		#index{
+			background-color: #F8F8F8;
+		}
+		/* .opration input{
+
+		} */
 		/* @-webkit-keyframes show{
 			from{
 				visibility: visible;
@@ -401,12 +564,14 @@
 			document.getElementById("message_intro" + id).style.display = "none";
 			document.getElementById("message_type" + id).style.display = "none";
 
+
 			//显示可编辑input
 			document.getElementById("updateMes_name" + id).style.display = "block";
 			document.getElementById("updateMes_price" + id).style.display = "block";
 			document.getElementById("updateMes_stock" + id).style.display = "block";
 			document.getElementById("updateMes_intro" + id).style.display = "block";
 			document.getElementById("updateMes_type" + id).style.display = "block";
+			document.getElementById("updateMes_file" + id).style.display = "block";
 
 			document.getElementById("groundBox" + id).style.display = "none";
 
@@ -427,45 +592,90 @@
 
 		function cancleUpdate(id){
 			ifUpdating = false;
-			// // 隐藏input
-			// document.getElementById("message_name" + id).style.display = "block";
-			// document.getElementById("message_price" + id).style.display = "block";
-			// document.getElementById("message_stock" + id).style.display = "block";
-			// document.getElementById("message_intro" + id).style.display = "block";
-			// document.getElementById("message_type" + id).style.display = "block";
-			// //显示用于显示信息的P
-			// document.getElementById("updateMes_name" + id).style.display = "none";
-			// document.getElementById("updateMes_price" + id).style.display = "none";
-			// document.getElementById("updateMes_stock" + id).style.display = "none";
-			// document.getElementById("updateMes_intro" + id).style.display = "none";
-			// document.getElementById("updateMes_type" + id).style.display = "none";
+			 //显示用于显示信息的P
+			document.getElementById("message_name" + id).style.display = "block";
+			document.getElementById("message_price" + id).style.display = "block";
+			document.getElementById("message_stock" + id).style.display = "block";
+			document.getElementById("message_intro" + id).style.display = "block";
+			document.getElementById("message_type" + id).style.display = "block";
 
-			// document.getElementById("groundBox" + id).style.display = "block";
+
+			// 隐藏input
+			document.getElementById("updateMes_name" + id).style.display = "none";
+			document.getElementById("updateMes_price" + id).style.display = "none";
+			document.getElementById("updateMes_stock" + id).style.display = "none";
+			document.getElementById("updateMes_intro" + id).style.display = "none";
+			document.getElementById("updateMes_type" + id).style.display = "none";
+			document.getElementById("updateMes_file" + id).style.display = "none";
+			
+			document.getElementById("groundBox" + id).style.display = "none";
 
 			//信息盒子的反应
 			document.getElementById("goodBox" + id).style.webkitAnimation = "goodsBoxMoveDown 0.5s forwards";
-			// document.getElementById("goodBox" + id).style.zIndex = "0";
-			// document.getElementById("goodBox" + id).style.border="none";
+			document.getElementById("goodBox" + id).style.zIndex = "0";
+			document.getElementById("goodBox" + id).style.border="none";
 
-			// // 弹出确定修改和去修修改按钮
-			// document.getElementById("sureUpdate"+id).style.display="none";
-			// document.getElementById("cancleUpdate"+id).style.display="none";
+			// 弹出确定修改和去修修改按钮
+			document.getElementById("sureUpdate"+id).style.display="none";
+			document.getElementById("cancleUpdate"+id).style.display="none";
 
-			// document.getElementById("sureUpdate"+id).style.webkitAnimation="updateBnMoveOff 0.5s forwards";
-			// document.getElementById("cancleUpdate"+id).style.webkitAnimation="updateBnMoveOff 0.5s forwards";
+			document.getElementById("sureUpdate"+id).style.webkitAnimation="updateBnMoveOff 0.5s forwards";
+			document.getElementById("cancleUpdate"+id).style.webkitAnimation="updateBnMoveOff 0.5s forwards";
 		}
+
+		function openAddWindow(){
+			document.getElementById("addWindow").style.display="block";
+			document.getElementById("addWindow").style.webkitAnimation="addWindowOpenMoveOn 0.5s forwards";
+		}
+
+		function addWindowShut(){
+			document.getElementById("addWindow").style.webkitAnimation="addWindowOpenMoveOff 0.5s forwards";
+		}
+
 	</script>
 </head>
 
 <body>
+
 	<div id="window">
 		<p>您确定要删除这件商品吗?</p>
 		<a href="#" onclick="deletes()">确定</a>
 		<a href="#" onclick="winShut()">取消</a>
 	</div>
+	<div class="addWindow" id="addWindow">
+		<form action="addGoods" method="POST" enctype="multipart/form-data">
+			<input type="text" name="name" placeholder="请输入名称"/>
+			<input type="number" name="price" placeholder="请输入价格"/>
+			<input type="number" name="stock" placeholder="库存"/>
+			<p>选择类型：</p>
+			<input type="number" name="type_id" />
+			<p>请选择上传图片：</p>
+			<input type="file" name="pictureFile" multiple="multiple"/>
+			<input type="text" name="intro"  placeholder="介绍"/>
+			<div class="addBn">
+					<input type="submit" value="提交" />
+					<a href="#" onclick="addWindowShut()">取消</a>
+			</div>
+		</form>
+	</div>
 	<jsp:include page="nav.jsp"></jsp:include>
+	<!-- 操作栏 -->
+	<div class="opration">
+			<button class="addBn" onclick="openAddWindow()">增加商品</button>
+				<select>
+					<option value="冰淇淋系列" href="">冰淇淋系列</option>
+					<option value="零食系列" href="">零食系列</option>
+					<option value="经典系列" href="">经典系列</option>
+					<option value="儿童系列" href="">儿童系列</option>
+					<option value="法师系列" href=""> 法师系列</option>
+				</select>
+		<form action="search">
+			<input type="submit" value="搜素">
+			<input type="text" name="value"/>
+		</form>
+		
+	</div>
 	<div class="dataBox">
-
 		<c:forEach items="${g }" var="gi">
 			<div class="wrapGoods" onclick="showbn(${gi.id})">
 				<!-- 弹出按钮所属盒子 -->
@@ -474,17 +684,18 @@
 					<a href="#" id="delete${gi.id}" class="delete" onclick="winOpen(${gi.id})">删除</a>
 				</div>
 				<!-- 商品信息所属盒子 -->
-
-				<form action="update">
+				<form action="updateGoods?id=${gi.id }&image=${gi.image}" method="POST" enctype="multipart/form-data">
 					<!-- 确定修改和取消修改按钮 -->
-					<input type="submit" id="sureUpdate${gi.id}" class="updateBn updateBnL" value="确定">
-					<a href="" id="cancleUpdate${gi.id}" class="updateBn updateBnR" onclick="cancleUpdate(${gi.id})">取消</a>
+					<input type="submit" id="sureUpdate${gi.id}" class="updateBn updateBnL" value="确定"/>
+					<a href="#" id="cancleUpdate${gi.id}" class="updateBn updateBnR" onclick="cancleUpdate(${gi.id})">取消</a>
 										
 					<div class="goodsBox" id="goodBox${gi.id}">																	
 
+						<!-- 用于存放图片的盒子 -->
 						<div class="imgbox"><img src="http://localhost:8080/cakes_moreTable_SSM/
 						${gi.image }" alt="">
-							<p class="updateMes "> <input type="file" name="picture" id="updateMes_file${gi.id} " /></p>
+							<p class="updateMes "  id="updateMes_file${gi.id}"> <input type="file" name="pictureFile" 
+								multiple="multiple"/></p>
 						</div>
 						<div class="dataR">
 							<p id="message_name${gi.id}">名称：${gi.name}</p>

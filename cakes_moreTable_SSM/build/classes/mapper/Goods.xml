@@ -20,16 +20,16 @@
 	    
 	    <update id="updateGoods" parameterType="Goods">
 	    	update goods set image=#{image},price=#{price},intro=#{intro},
-	    	stock=#{stock},type_id=#{type_id}
+	    	stock=#{stock},type_id=#{type_id},name=#{name} where id=#{id}
 	    </update>
 		
 		<delete id="deleteGoods" parameterType="int" >
 			delete from goods where id=#{id}
 		</delete>
-		<!-- <insert id="add" parameterType="Fruit">
-			insert into fruit (productName,productDescribe,sort,state,picture) values 
-			(#{productName},#{productDescribe},#{sort},#{state},#{picture})
-		</insert> --> 
+		<insert id="addGoods" parameterType="Goods">
+			insert into goods (name,image,price,intro,stock,type_id) values 
+			(#{name},#{image},#{price},#{intro},#{stock},#{type_id})
+		</insert> 
 		<!-- <select id="findName" parameterType="String" resultType="String">
 			select name from fruit where num=#{num}
 		</select>

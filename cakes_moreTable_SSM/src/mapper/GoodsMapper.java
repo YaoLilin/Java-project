@@ -10,4 +10,5 @@ public interface GoodsMapper {
 	 String type(int type_id);
 	 int updateGoods(Goods goods);
 	 int deleteGoods(int id);
+	 int addGoods(Goods goods);
 }

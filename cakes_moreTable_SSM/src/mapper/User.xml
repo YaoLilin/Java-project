@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="mapper.GoodsMapper">
+		<delete id="deleteuser" parameterType="int" >
+			delete from user where id=#{id}
+		</delete>
+		<select id="get" parameterType="int" resultType="User">
+			select * from user where name=#{name} and password=#{password}
+		</select>
+		<update  id="updateUser" parameterType="User" >
+			update user set name=#{name},password=#{password} where id=#{id}
+		</update>
+		<insert id="updateUser" parameterType="User" >
+			insert into user (name,password) values(#{name}#{password})
+		</insert>
+	</mapper>
